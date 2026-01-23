@@ -16,7 +16,7 @@ exports.getItemById = async (req, res) => {
   res.json(item);
 };
 
-// POST /api/items
+
 exports.createItem = async (req, res) => {
   const item = new Item(req.body);
   const savedItem = await item.save();
