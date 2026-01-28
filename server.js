@@ -1,16 +1,25 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+import express from "express";
+import dotenv from "dotenv";
 
 dotenv.config();
-connectDB();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 
-app.get("/", (req, res) => res.json({ message: "API is running" }));
+app.get("/", (req, res) => {
+  res.send("Practice 11 backend is running");
+});
 
-app.use("/api/items", require("./routes/itemRoutes"));
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get("/version", (req, res) => {
+  res.json({
+    version: "1.1",
+    updatedAt: "2026-01-28"
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
