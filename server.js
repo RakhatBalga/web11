@@ -1,5 +1,5 @@
-import express from "express";
-import dotenv from "dotenv";
+const express = require("express");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -8,8 +8,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
-  res.send("Practice 11 backend is running");
+  res.json({ message: "Practice 11 backend is running" });
 });
 
 
